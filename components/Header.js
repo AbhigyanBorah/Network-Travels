@@ -1,12 +1,15 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Ionicons} from '@expo/vector-icons';
+import {useNavigation} from '@react-navigation/native';
 
 const Header = () => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={styles.innerContainer}>
-                <Pressable style={styles.menuBar}>
+                <Pressable style={styles.menuBar} onPress={() => navigation.navigate('SideNav')}>
                     <View style={styles.smallBar}></View>
                     <View style={styles.middleBar}></View>
                     <View style={styles.smallBar}></View>

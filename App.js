@@ -12,6 +12,7 @@ import Registration from './screens/Registration';
 import Login from './screens/Login';
 import OTPScreen from './screens/OTPScreen';
 import BottomNav from './components/BottomNav';
+import SideNav from './screens/SideNav';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name="Registration" component={Registration} options={{headerShown: false, animation: 'fade'}} />
           <Stack.Screen name="Login" component={Login} options={{headerShown: false, animation: 'slide_from_bottom'}} />
           <Stack.Screen name="OTP" component={OTPScreen} options={{headerShown: false, animation: 'default'}} />
+          <Stack.Screen name="SideNav" component={SideNav} options={{headerShown: false, animation: 'slide_from_left'}} />
           <Stack.Screen name="BottomNav" component={BottomNav} options={{headerShown: false, animation: 'slide_from_right'}} />
         </Stack.Navigator>
       </NavigationContainer>
