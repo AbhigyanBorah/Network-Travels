@@ -1,10 +1,17 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {Ionicons} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable';
 
 const Header = () => {
+    const [bellPressed, setBellPressed] = useState(false);
     const navigation = useNavigation();
+    const notificationRef = useRef(null);
+
+    useEffect(() => {
+        notificationRef.current.animate('swing');
+    }, [bellPressed]);
 
     return (
         <View style={styles.container}>
@@ -17,9 +24,13 @@ const Header = () => {
                 <View style={{width: '60%', justifyContent: 'center', alignItems: 'center', paddingVertical: 15}}>
                     <Image source={require('../assets/NetworkTravelsLogo2.png')} style={{width: '90%', height: 43, resizeMode: 'contain'}} />
                 </View>
-                <View>
-                    <Ionicons name='notifications-outline' size={34} />
-                </View>
+                <Pressable onPress={() => setBellPressed(!bellPressed)}>
+                    <Animatable.View
+                        ref={notificationRef}
+                    >
+                        <Ionicons name='notifications-outline' size={34} />
+                    </Animatable.View>
+                </Pressable>
             </View>
         </View>
     );

@@ -1,65 +1,67 @@
-import {Pressable, StyleSheet, Text, TextInput, View, Image} from 'react-native';
+import {Pressable, StyleSheet, Text, TextInput, View, Image, ScrollView} from 'react-native';
 import React, {useState} from 'react';
-import Header from '../components/Header';
+import Header from '../components/HeaderHome';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [selectedWay, setSelectedWay] = useState('one');
+
     return (
         <View style={styles.rootContainer}>
             <Header />
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>
-                    Where are you going to?
-                </Text>
-            </View>
-            <View style={styles.wayContainer}>
-                <View style={styles.lines}></View>
-                <View style={styles.wayButtonContainer}>
-                    <Pressable style={[selectedWay === 'one' ? {backgroundColor: 'white'} : '', styles.wayButton]} onPress={() => setSelectedWay('one')}>
-                        <Text style={[selectedWay === 'one' ? {fontWeight: 'bold'} : {color: '#000000', opacity: 0.5}, {alignItems: 'center'}]}>One Way</Text>
-                    </Pressable>
-                    <Pressable style={[selectedWay === 'round' ? {backgroundColor: 'white'} : '', styles.wayButton]} onPress={() => setSelectedWay('round')}>
-                        <Text style={[selectedWay === 'round' ? {fontWeight: 'bold'} : {color: '#000000', opacity: 0.5}, {alignItems: 'center'}]}>Round Trip</Text>
-                    </Pressable>
+            <ScrollView alwaysBounceVertical={true} bounces={true} >
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>
+                        Where are you going to?
+                    </Text>
                 </View>
-                <View style={styles.lines}></View>
-            </View>
-            <View style={styles.inputContainer}>
-                <View style={styles.upperContainer}>
-                    <View style={{width: '90%', paddingRight: 10}}>
-                        <TextInput placeholder='From' style={styles.input} />
-                        <TextInput placeholder='To' style={styles.input} />
+                <View style={styles.wayContainer}>
+                    <View style={styles.lines}></View>
+                    <View style={styles.wayButtonContainer}>
+                        <Pressable style={[selectedWay === 'one' ? {backgroundColor: 'white'} : '', styles.wayButton]} onPress={() => setSelectedWay('one')}>
+                            <Text style={[selectedWay === 'one' ? {fontWeight: 'bold'} : {color: '#000000', opacity: 0.5}, {alignItems: 'center'}]}>One Way</Text>
+                        </Pressable>
+                        <Pressable style={[selectedWay === 'round' ? {backgroundColor: 'white'} : '', styles.wayButton]} onPress={() => setSelectedWay('round')}>
+                            <Text style={[selectedWay === 'round' ? {fontWeight: 'bold'} : {color: '#000000', opacity: 0.5}, {alignItems: 'center'}]}>Round Trip</Text>
+                        </Pressable>
                     </View>
-                    <View style={styles.figureContainer}>
-                        <View style={styles.yellowFigure}><View style={styles.blackDot}></View></View>
-                        <View style={styles.figureLine}></View>
-                        <View style={styles.figureLine}></View>
-                        <View style={styles.figureLine}></View>
-                        <View style={styles.blackFigure}><View style={styles.yellowDot}></View></View>
+                    <View style={styles.lines}></View>
+                </View>
+                <View style={styles.inputContainer}>
+                    <View style={styles.upperContainer}>
+                        <View style={{width: '90%', paddingRight: 10}}>
+                            <TextInput placeholder='From' style={styles.input} />
+                            <TextInput placeholder='To' style={styles.input} />
+                        </View>
+                        <View style={styles.figureContainer}>
+                            <View style={styles.yellowFigure}><View style={styles.blackDot}></View></View>
+                            <View style={styles.figureLine}></View>
+                            <View style={styles.figureLine}></View>
+                            <View style={styles.figureLine}></View>
+                            <View style={styles.blackFigure}><View style={styles.yellowDot}></View></View>
+                        </View>
+                    </View>
+                    <View style={{flexDirection: 'row'}}>
+                        <TextInput placeholder='Departure date' style={styles.dateInput} />
+                        <TextInput placeholder='Return date' style={styles.dateInput} />
                     </View>
                 </View>
-                <View style={{flexDirection: 'row'}}>
-                    <TextInput placeholder='Departure date' style={styles.dateInput} />
-                    <TextInput placeholder='Return date' style={styles.dateInput} />
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                    <Pressable android_ripple={{color: '#515151'}} style={styles.loginButton} onPress={() => navigation.navigate('BusTypes')}>
+                        <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>FIND A BUS</Text>
+                    </Pressable>
                 </View>
-            </View>
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Pressable android_ripple={{color: '#515151'}} style={styles.loginButton}>
-                    <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>FIND A BUS</Text>
-                </Pressable>
-            </View>
-            <View style={{
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: 30
-            }}>
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: 30
+                }}>
 
-                <Image source={require('../assets/guidelines1.png')} style={{resizeMode: 'contain', width: 200, height: 200}} />
+                    <Image source={require('../assets/guidelines1.png')} style={{resizeMode: 'contain', width: 200, height: 200}} />
 
-                <Image source={require('../assets/guidelines2.png')} style={{resizeMode: 'contain', width: 200, height: 200}} />
-            </View>
-
+                    <Image source={require('../assets/guidelines2.png')} style={{resizeMode: 'contain', width: 200, height: 200}} />
+                </View>
+            </ScrollView>
         </View>
     );
 };

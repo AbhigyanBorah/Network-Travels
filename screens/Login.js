@@ -1,10 +1,25 @@
-import {StyleSheet, Text, View, TextInput, Pressable, Image} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View, TextInput, Pressable, Image, Keyboard} from 'react-native';
+import React, {useState} from 'react';
 import {Ionicons} from '@expo/vector-icons';
 
 const Login = ({navigation: {goBack}, navigation}) => {
+
+    const [mobile, setMobile] = useState('');
+
+    const checkEmpty = () => {
+        //Check for the Name TextInput
+        if (!mobile.trim()) {
+            alert('Please Enter Mobile Number');
+            return;
+        } else if (mobile.length !== 10) {
+            alert('Mobile number should be of 10 digits');
+            return;
+        }
+        navigation.navigate('OTP');
+    };
+
     return (
-        <View style={styles.mainContainer}>
+        <Pressable style={styles.mainContainer} onPress={() => Keyboard.dismiss()}>
             <Pressable style={styles.skipContainer} onPress={() => goBack()}>
                 <Ionicons name='chevron-back-outline' size={20} />
                 <Text style={{fontSize: 15, fontWeight: 'bold'}}>Back</Text>
@@ -15,15 +30,17 @@ const Login = ({navigation: {goBack}, navigation}) => {
                 <Image source={require('../assets/NetworkTravelsText.png')} style={{marginTop: 10, width: 320, height: 30}} />
             </View>
             <View style={styles.inputContainer}>
-                <TextInput style={styles.input} placeholder='Mobile Number' keyboardType='number-pad' />
-                <Pressable android_ripple={{color: '#515151'}} style={styles.loginButton} onPress={() => navigation.navigate('OTP')}>
+                <TextInput style={styles.input} placeholder='Mobile Number' keyboardType='number-pad' onChangeText={
+                    (value) => setMobile(value)
+                } />
+                <Pressable android_ripple={{color: '#515151'}} style={styles.loginButton} onPress={checkEmpty}>
                     <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>LOGIN</Text>
                 </Pressable>
             </View>
 
             {/* </ImageBackground> */}
             <Image source={require('../assets/bus.png')} />
-        </View>
+        </Pressable>
     );
 };
 

@@ -13,6 +13,9 @@ import Login from './screens/Login';
 import OTPScreen from './screens/OTPScreen';
 import BottomNav from './components/BottomNav';
 import SideNav from './screens/SideNav';
+import BusTypes from './screens/BusTypes';
+import FilterScreen from './screens/FilterScreen';
+import SeatBooking from './screens/SeatBooking';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,8 +31,11 @@ export default function App() {
           <Stack.Screen name="Registration" component={Registration} options={{headerShown: false, animation: 'fade'}} />
           <Stack.Screen name="Login" component={Login} options={{headerShown: false, animation: 'slide_from_bottom'}} />
           <Stack.Screen name="OTP" component={OTPScreen} options={{headerShown: false, animation: 'default'}} />
+          <Stack.Screen name="BusTypes" component={BusTypes} options={{headerShown: false, animation: 'default'}} />
+          <Stack.Screen name="SeatBooking" component={SeatBooking} options={{headerShown: false, animation: 'default'}} />
           <Stack.Screen name="SideNav" component={SideNav} options={{headerShown: false, animation: 'slide_from_left'}} />
           <Stack.Screen name="BottomNav" component={BottomNav} options={{headerShown: false, animation: 'slide_from_right'}} />
+          <Stack.Screen name="Filter" component={FilterScreen} options={{headerShown: false, animation: 'slide_from_bottom'}} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

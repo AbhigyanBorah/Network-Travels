@@ -1,10 +1,38 @@
-import {StyleSheet, Text, View, TextInput, Pressable, Image} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View, TextInput, Pressable, Image, Keyboard} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
 import {Ionicons} from '@expo/vector-icons';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 const OTPScreen = ({navigation: {goBack}, navigation}) => {
+    const [resend, setResend] = useState(false);
+    const [time, setTime] = useState(59);
+    const timer = useRef();
+
+    function resendFunc() {
+        setResend(true);
+        timer.current = setInterval(() => {
+            setTime((time) => time - 1);
+        }, 1000);
+    }
+
+    useEffect(() => {
+        if (time < 0) {
+            setResend(false);
+            clearInterval(timer.current);
+            setTime(59);
+        }
+    }, [time]);
+
+
+    // useEffect(() => {
+    //     return () => {
+    //         clearInterval(timer.current);
+    //     };
+    // }, []);
+
+
     return (
-        <View style={styles.mainContainer}>
+        <Pressable style={styles.mainContainer} onPress={() => Keyboard.dismiss()}>
             <Pressable style={styles.skipContainer} onPress={() => goBack()}>
                 <Ionicons name='chevron-back-outline' size={20} />
                 <Text style={{fontSize: 15, fontWeight: 'bold'}}>Back</Text>
@@ -15,22 +43,26 @@ const OTPScreen = ({navigation: {goBack}, navigation}) => {
             </View>
             <View style={styles.inputContainer}>
                 <View style={styles.otpInput}>
+                    {/* <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} />
                     <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} />
                     <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} />
-                    <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} />
-                    <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} />
+                    <TextInput style={styles.input} keyboardType='number-pad' maxLength={1} /> */}
+                    <OTPInputView autoFocusOnLoad={false} pinCount={4} style={{height: 50, width: '80%'}} codeInputFieldStyle={styles.input} />
                 </View>
                 <Pressable android_ripple={{color: '#515151'}} style={styles.loginButton} onPress={() => navigation.navigate('BottomNav')}>
                     <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>VERIFY</Text>
                 </Pressable>
-                <View style={styles.loginContainer}>
-                    <Text style={{fontSize: 16}}>Didn't receive OTP?</Text><Pressable onPress={() => navigation.navigate('OTP')}><Text style={{fontSize: 17, fontWeight: 'bold', marginLeft: 5}}>RESEND</Text></Pressable>
-                </View>
+                {resend ? <View style={{alignItems: 'center', margin: 10}}>
+                    <Text style={{fontSize: 17, fontWeight: 'bold'}}>00:{time < 10 ? `0${time}` : time}</Text>
+                </View> :
+                    <View style={styles.loginContainer}>
+                        <Text style={{fontSize: 16}}>Didn't receive OTP?</Text><Pressable onPress={resendFunc}><Text style={{fontSize: 17, fontWeight: 'bold', marginLeft: 5}}>RESEND</Text></Pressable>
+                    </View>}
             </View>
 
             {/* </ImageBackground> */}
             <Image source={require('../assets/bus.png')} />
-        </View>
+        </Pressable>
     );
 };
 
@@ -86,7 +118,8 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: '#000000'
     },
     loginButton: {
         backgroundColor: '#000000',

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TextInput, Pressable, Image} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Pressable, Image, Keyboard} from 'react-native';
 import React, {useState} from 'react';
 import {Ionicons} from '@expo/vector-icons';
 
@@ -20,14 +20,18 @@ const Registration = ({navigation}) => {
             alert('Please Enter Mobile');
             return;
         }
-        //Checked Successfully
-        //Do whatever you want
+
+        if (mobile.length !== 10) {
+            alert('Mobile number should be of 10 digits');
+            return;
+        }
+
         navigation.navigate('OTP');
     };
 
     return (
-        <View style={styles.mainContainer}>
-            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('Home')}>
+        <Pressable style={styles.mainContainer} onPress={() => Keyboard.dismiss()}>
+            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('BottomNav')}>
                 <Text style={{fontSize: 15, fontWeight: 'bold'}}>Skip</Text>
                 <Ionicons name='chevron-forward-outline' size={20} />
             </Pressable>
@@ -62,7 +66,7 @@ const Registration = ({navigation}) => {
 
             {/* </ImageBackground> */}
             <Image source={require('../assets/bus.png')} />
-        </View>
+        </Pressable>
     );
 };
 

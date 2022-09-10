@@ -9,7 +9,7 @@ const OnBording1 = ({navigation}) => {
                     <View style={styles.dash}></View>
                     <View style={styles.circle}></View>
                 </View>
-                <Pressable onPress={() => navigation.navigate('Home')}><Text style={styles.skipText}>Skip</Text></Pressable>
+                <Pressable onPress={() => navigation.navigate('BottomNav')}><Text style={styles.skipText}>Skip</Text></Pressable>
             </View>
             <Image source={require('../assets/OnBoard1.png')} style={styles.mainImage} />
             <View style={styles.textContainer}>
