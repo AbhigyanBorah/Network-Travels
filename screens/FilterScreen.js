@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import FilterHeader from '../components/FilterHeader';
+import GeneralHeader from '../components/GeneralHeader';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const FilterScreen = ({navigation}) => {
@@ -8,7 +8,7 @@ const FilterScreen = ({navigation}) => {
 
     return (
         <View style={styles.rootContainer}>
-            <FilterHeader />
+            <GeneralHeader heading={'Filter & sort by'} />
 
             <View style={{marginLeft: 50, marginTop: 50}}>
                 <Text style={{fontWeight: 'bold', fontSize: 18, paddingVertical: 10}}>DEPARTURE TIME</Text>

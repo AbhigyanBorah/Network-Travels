@@ -31,7 +31,7 @@ const Registration = ({navigation}) => {
 
     return (
         <Pressable style={styles.mainContainer} onPress={() => Keyboard.dismiss()}>
-            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('BottomNav')}>
+            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('Home')}>
                 <Text style={{fontSize: 15, fontWeight: 'bold'}}>Skip</Text>
                 <Ionicons name='chevron-forward-outline' size={20} />
             </Pressable>
