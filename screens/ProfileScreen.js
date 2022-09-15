@@ -13,7 +13,7 @@ const ProfileScreen = ({navigation}) => {
             <Pressable style={styles.container}>
                 <Text style={{fontWeight: 'bold', fontSize: 16, }} onPress={() => navigation.navigate('My wallet')}>My wallet</Text>
             </Pressable>
-            <Pressable style={styles.container}>
+            <Pressable style={styles.container} onPress={() => navigation.navigate('Get ticket')}>
                 <Text style={{fontWeight: 'bold', fontSize: 16}}>Get ticket details</Text>
             </Pressable>
             <Pressable style={styles.container}>

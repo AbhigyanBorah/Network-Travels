@@ -21,7 +21,7 @@ const BusDetails = ({ac, seats, price, sleeper}) => {
                 <View style={{flexDirection: 'row', alignItems: 'flex-start', padding: 10}}>
                     <Fontisto name='bus' size={18} style={{marginTop: 5}} />
                     <View>
-                        <Image source={require('../assets/NETWORKTRAVELS.png')} style={{marginTop: 5, marginLeft: 10, height: 20, width: 130, resizeMode: 'contain'}} />
+                        <Image source={require('../assets/NETWORKTRAVELS-1.png')} style={{marginTop: 5, marginLeft: 10, height: 20, width: 130, resizeMode: 'contain'}} />
                         <Text style={{marginLeft: 5, fontWeight: 'bold', fontSize: 12, opacity: 0.5}}>{type} (2x1)</Text>
                     </View>
                     <View style={styles.availSeats}><Text style={{fontWeight: 'bold'}}>{seats} seats</Text></View>

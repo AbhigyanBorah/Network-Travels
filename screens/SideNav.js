@@ -31,7 +31,7 @@ const SideNav = () => {
                     <Text style={styles.screenNames}>Bookings</Text>
                 </View>
             </Pressable>
-            <Pressable style={styles.navBlocks}>
+            <Pressable style={styles.navBlocks} onPress={() => navigation.navigate('My wallet')}>
                 <View>
                     <Ionicons name='wallet-outline' size={28} style={{marginLeft: 10}} />
                 </View>
@@ -47,7 +47,7 @@ const SideNav = () => {
                     <Text style={styles.screenNames}>Get ticket details</Text>
                 </View>
             </Pressable>
-            <Pressable style={styles.navBlocks}>
+            <Pressable style={styles.navBlocks} onPress={() => navigation.navigate('CancelTicket1')}>
                 <View>
                     <Image source={require('../assets/cancelTicket.png')} style={{marginLeft: 15}} />
                 </View>

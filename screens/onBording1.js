@@ -11,14 +11,14 @@ const OnBording1 = ({navigation}) => {
                 </View>
                 <Pressable onPress={() => navigation.navigate('BottomNav')}><Text style={styles.skipText}>Skip</Text></Pressable>
             </View>
-            <Image source={require('../assets/OnBoard1.png')} style={styles.mainImage} />
+            <Image source={require('../assets/OnBoard1-2.png')} style={styles.mainImage} />
             <View style={styles.textContainer}>
                 <Text style={{fontWeight: 'bold', fontSize: 28}}>Move</Text>
                 <Text style={{fontSize: 22}}>with us.</Text>
             </View>
             <Text style={styles.subText}>Buy bus tickets easily. You choose the destination and we make the rest.</Text>
             <Pressable style={styles.nextCont} onPress={() => navigation.navigate('OnBoarding2')}>
-                <Image source={require('../assets/onBoardArrow.png')} style={{width: 200, height: 200}} />
+                <Image source={require('../assets/onBoardArrow2.png')} style={{width: 200, height: 200}} />
             </Pressable>
             <View style={styles.curve} >
                 <Image source={require('../assets/bottomCurve.png')} style={styles.curveImg} />

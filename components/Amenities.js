@@ -6,7 +6,8 @@ const Amenities = () => {
     return (
         <View style={styles.mainContainer}>
             <Text style={styles.amenitiesText}>Amenities & Photos</Text>
-            <View style={styles.innerContainer}>
+            <Image source={require('../assets/amenities.png')} style={{resizeMode: 'contain', height: 180, width: '100%'}} />
+            {/* <View style={styles.innerContainer}>
                 <View style={styles.amenities}>
                     {AMENITIES.map((item, index) => (
                         <View style={styles.amenity} key={index}>
@@ -30,7 +31,7 @@ const Amenities = () => {
                         <Image source={require('../assets/bus4.png')} style={styles.busOther} />
                     </View>
                 </View>
-            </View>
+            </View> */}
         </View>
     );
 };

@@ -1,9 +1,14 @@
 import {Pressable, StyleSheet, Text, TextInput, View, Image, ScrollView} from 'react-native';
 import React, {useState} from 'react';
+import {Ionicons} from '@expo/vector-icons';
 import Header from '../components/HeaderHome';
+
+import DatePicker from 'react-native-date-picker';
 
 const HomeScreen = ({navigation}) => {
     const [selectedWay, setSelectedWay] = useState('one');
+    const [date, setDate] = useState(new Date());
+    const [open, setOpen] = useState(false);
 
     return (
         <View style={styles.rootContainer}>
@@ -42,6 +47,19 @@ const HomeScreen = ({navigation}) => {
                     </View>
                     <View style={{flexDirection: 'row'}}>
                         <TextInput placeholder='Departure date' style={styles.dateInput} />
+                        {/* <Ionicons name='calendar-sharp' size={24} onPress={() => setOpen(true)} />
+                        <DatePicker
+                            modal
+                            open={open}
+                            date={date}
+                            onConfirm={(date) => {
+                                setOpen(false);
+                                setDate(date);
+                            }}
+                            onCancel={() => {
+                                setOpen(false);
+                            }}
+                        /> */}
                         <TextInput placeholder='Return date' style={styles.dateInput} />
                     </View>
                 </View>

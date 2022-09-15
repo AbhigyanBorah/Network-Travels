@@ -22,7 +22,7 @@ const Header = () => {
                     <View style={styles.smallBar}></View>
                 </Pressable>
                 <View style={{width: '60%', justifyContent: 'center', alignItems: 'center', paddingVertical: 15}}>
-                    <Image source={require('../assets/NetworkTravelsLogo2.png')} style={{width: '90%', height: 43, resizeMode: 'contain'}} />
+                    <Image source={require('../assets/NetworkTravelsLogo-2.png')} style={{width: '90%', height: 43, resizeMode: 'contain'}} />
                 </View>
                 <Pressable onPress={() => setBellPressed(!bellPressed)}>
                     <Animatable.View

@@ -1,8 +1,13 @@
 import {Image, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import GeneralHeader from '../components/GeneralHeader';
 
 const RateReview = ({navigation}) => {
+    const [rateBooking, setRateBooking] = useState(0);
+    const [rateBusQuality, setRateBusQuality] = useState(0);
+    const [rateCrew, setRateCrew] = useState(0);
+    const [rateStop, setRateStop] = useState(0);
+
     return (
         <View style={{flex: 1, backgroundColor: '#ffffff'}}>
             <GeneralHeader heading={'Rate & review'} />
@@ -15,41 +20,41 @@ const RateReview = ({navigation}) => {
                 <View style={styles.experienceContainer}>
                     <Text>Booking experience</Text>
                     <View style={{flexDirection: 'row'}}>
-                        <Image source={require('../assets/angry.png')} style={styles.emoji} />
-                        <Image source={require('../assets/sad.png')} style={styles.emoji} />
-                        <Image source={require('../assets/happy.png')} style={styles.emoji} />
-                        <Image source={require('../assets/laugh.png')} style={styles.emoji} />
-                        <Image source={require('../assets/love.png')} style={styles.emoji} />
+                        <Pressable onPress={() => setRateBooking(5)}><Image source={require('../assets/angry.png')} style={[rateBooking === 5 ? {backgroundColor: '#f50909'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBooking(4)}><Image source={require('../assets/sad.png')} style={[rateBooking === 4 ? {backgroundColor: '#f56b09'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBooking(3)}><Image source={require('../assets/happy.png')} style={[rateBooking === 3 ? {backgroundColor: '#f5a209'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBooking(2)}><Image source={require('../assets/laugh.png')} style={[rateBooking === 2 ? {backgroundColor: '#ffea00'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBooking(1)}><Image source={require('../assets/love.png')} style={[rateBooking === 1 ? {backgroundColor: '#54f509'} : '', styles.emoji]} /></Pressable>
                     </View>
                 </View>
                 <View style={styles.experienceContainer}>
                     <Text>Bus quality</Text>
                     <View style={{flexDirection: 'row'}}>
-                        <Image source={require('../assets/angry.png')} style={styles.emoji} />
-                        <Image source={require('../assets/sad.png')} style={styles.emoji} />
-                        <Image source={require('../assets/happy.png')} style={styles.emoji} />
-                        <Image source={require('../assets/laugh.png')} style={styles.emoji} />
-                        <Image source={require('../assets/love.png')} style={styles.emoji} />
+                        <Pressable onPress={() => setRateBusQuality(5)}><Image source={require('../assets/angry.png')} style={[rateBusQuality === 5 ? {backgroundColor: '#f50909'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBusQuality(4)}><Image source={require('../assets/sad.png')} style={[rateBusQuality === 4 ? {backgroundColor: '#f56b09'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBusQuality(3)}><Image source={require('../assets/happy.png')} style={[rateBusQuality === 3 ? {backgroundColor: '#f5a209'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBusQuality(2)}><Image source={require('../assets/laugh.png')} style={[rateBusQuality === 2 ? {backgroundColor: '#ffea00'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateBusQuality(1)}><Image source={require('../assets/love.png')} style={[rateBusQuality === 1 ? {backgroundColor: '#54f509'} : '', styles.emoji]} /></Pressable>
                     </View>
                 </View>
                 <View style={styles.experienceContainer}>
                     <Text>Bus crew quality</Text>
                     <View style={{flexDirection: 'row'}}>
-                        <Image source={require('../assets/angry.png')} style={styles.emoji} />
-                        <Image source={require('../assets/sad.png')} style={styles.emoji} />
-                        <Image source={require('../assets/happy.png')} style={styles.emoji} />
-                        <Image source={require('../assets/laugh.png')} style={styles.emoji} />
-                        <Image source={require('../assets/love.png')} style={styles.emoji} />
+                        <Pressable onPress={() => setRateCrew(5)}><Image source={require('../assets/angry.png')} style={[rateCrew === 5 ? {backgroundColor: '#f50909'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateCrew(4)}><Image source={require('../assets/sad.png')} style={[rateCrew === 4 ? {backgroundColor: '#f56b09'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateCrew(3)}><Image source={require('../assets/happy.png')} style={[rateCrew === 3 ? {backgroundColor: '#f5a209'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateCrew(2)}><Image source={require('../assets/laugh.png')} style={[rateCrew === 2 ? {backgroundColor: '#ffea00'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateCrew(1)}><Image source={require('../assets/love.png')} style={[rateCrew === 1 ? {backgroundColor: '#54f509'} : '', styles.emoji]} /></Pressable>
                     </View>
                 </View>
                 <View style={styles.experienceContainer}>
                     <Text>Rest-stop experience</Text>
                     <View style={{flexDirection: 'row'}}>
-                        <Image source={require('../assets/angry.png')} style={styles.emoji} />
-                        <Image source={require('../assets/sad.png')} style={styles.emoji} />
-                        <Image source={require('../assets/happy.png')} style={styles.emoji} />
-                        <Image source={require('../assets/laugh.png')} style={styles.emoji} />
-                        <Image source={require('../assets/love.png')} style={styles.emoji} />
+                        <Pressable onPress={() => setRateStop(5)}><Image source={require('../assets/angry.png')} style={[rateStop === 5 ? {backgroundColor: '#f50909'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateStop(4)}><Image source={require('../assets/sad.png')} style={[rateStop === 4 ? {backgroundColor: '#f56b09'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateStop(3)}><Image source={require('../assets/happy.png')} style={[rateStop === 3 ? {backgroundColor: '#f5a209'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateStop(2)}><Image source={require('../assets/laugh.png')} style={[rateStop === 2 ? {backgroundColor: '#ffea00'} : '', styles.emoji]} /></Pressable>
+                        <Pressable onPress={() => setRateStop(1)}><Image source={require('../assets/love.png')} style={[rateStop === 1 ? {backgroundColor: '#54f509'} : '', styles.emoji]} /></Pressable>
                     </View>
                 </View>
             </View>
@@ -82,7 +87,8 @@ const styles = StyleSheet.create({
     emoji: {
         height: 30,
         width: 30,
-        marginLeft: 15
+        marginLeft: 15,
+        borderRadius: 50
     },
     inputArea: {
         backgroundColor: '#EFEBEB',

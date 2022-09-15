@@ -4,9 +4,8 @@ import GeneralHeader from '../components/GeneralHeader';
 import {ProgressSteps, ProgressStep} from 'react-native-progress-steps';
 
 
-const CancelTicket1 = ({navigation}) => {
-    const [passenger1, setPassenger1] = useState(true);
-    const [passenger2, setPassenger2] = useState(false);
+const CancelTicket2 = ({navigation}) => {
+    const [options, setOptions] = useState('1');
 
 
     return (
@@ -36,10 +35,10 @@ const CancelTicket1 = ({navigation}) => {
                     </View>
                     <Text style={{fontSize: 10}}>Select passenger</Text>
                 </View>
-                <View style={styles.line} />
+                <View style={styles.selectedLine} />
                 <View style={styles.singleConatiner}>
-                    <View style={styles.steps}>
-                        <Text style={styles.text}>2</Text>
+                    <View style={styles.selectedSteps}>
+                        <Text style={styles.selectedText}>2</Text>
                     </View>
                     <Text style={{fontSize: 10}}>Refund amount</Text>
                 </View>
@@ -53,54 +52,41 @@ const CancelTicket1 = ({navigation}) => {
             </View>
 
             <View style={styles.container}>
-                <View style={{alignItems: 'flex-start'}}>
-                    <Text style={styles.headingText}>BOOKING ID</Text>
-                    <Text style={styles.detailsText}>Guwahati</Text>
-                    <Text style={styles.detailsText}>Sunday, 22 April</Text>
-                </View>
-                <View style={{alignItems: 'flex-end'}}>
-                    <Text style={styles.headingText}>PNR - 1215420 </Text>
-                    <Text style={styles.detailsText}>Jorhat</Text>
-                    <Text style={styles.detailsText}>06:00 AM</Text>
-                </View>
+                <Text style={{fontSize: 16, fontWeight: 'bold'}}>Refundable amount</Text>
+                <Text style={{fontSize: 16, fontWeight: 'bold'}}>₹ 120.00</Text>
             </View>
             <View style={styles.container}>
                 <View style={{alignItems: 'flex-start'}}>
-                    <Text style={styles.headingText}>Passengers</Text>
-                    <Pressable onPress={() => setPassenger1((prev) => !prev)}>
+                    <Text style={styles.headingText}>Claim refundable amount:</Text>
+                    <Pressable onPress={() => setOptions('1')}>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <View style={styles.radioButton}>
-                                <View style={[passenger1 ? {backgroundColor: '#000000'} : '', styles.innerCircle]}></View>
+                                <View style={[options === '1' ? {backgroundColor: '#000000'} : '', styles.innerCircle]}></View>
                             </View>
-                            <Text style={styles.detailsText}>Name surname</Text>
+                            <Text style={styles.detailsText}>Default payment method (within 7 bussiness days)</Text>
                         </View>
                     </Pressable>
-                    <Pressable onPress={() => setPassenger2((prev) => !prev)}>
+                    <Pressable onPress={() => setOptions('2')}>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <View style={styles.radioButton}>
-                                <View style={[passenger2 ? {backgroundColor: '#000000'} : '', styles.innerCircle]}></View>
+                                <View style={[options === '2' ? {backgroundColor: '#000000'} : '', styles.innerCircle]}></View>
                             </View>
-                            <Text style={styles.detailsText}>Name surname</Text>
+                            <Text style={styles.detailsText}>My wallet (instanly)</Text>
                         </View>
                     </Pressable>
-                </View>
-                <View style={{alignItems: 'flex-end'}}>
-                    <Text style={styles.headingText}>Seats</Text>
-                    <Text style={styles.detailsText}>7 (upper berth)</Text>
-                    <Text style={styles.detailsText}>7 (upper berth)</Text>
                 </View>
             </View>
 
             <View style={{position: 'absolute', bottom: 40, left: 50, right: 50}}>
-                <Pressable android_ripple={{color: '#515151'}} style={styles.downloadButton} onPress={() => navigation.navigate('Cancel ticket2')}>
-                    <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>CANCEL TICKET</Text>
+                <Pressable android_ripple={{color: '#515151'}} style={styles.downloadButton} onPress={() => navigation.navigate('Cancel ticket3')}>
+                    <Text style={{color: '#ffffff', fontSize: 20, fontWeight: 'bold', letterSpacing: 1}}>SUBMIT</Text>
                 </Pressable>
             </View>
         </View>
     );
 };
 
-export default CancelTicket1;
+export default CancelTicket2;
 
 const styles = StyleSheet.create({
     stepsConatiner: {
@@ -147,6 +133,11 @@ const styles = StyleSheet.create({
         height: 5,
         width: '10%',
         opacity: 0.3
+    },
+    selectedLine: {
+        backgroundColor: '#FAD008',
+        height: 5,
+        width: '10%',
     },
     container: {
         flexDirection: 'row',

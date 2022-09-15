@@ -16,9 +16,8 @@ const Berth = ({onPress}) => {
 					</View>
 					<View style={styles.seats}>
 						{LSEATS.map((seat, index) => (
-							<>
-								{seat.visible ? <Seat number={seat.number} onPress={onPress} key={index} /> : <View style={styles.invisibleSeat}></View>}
-							</>
+							seat.visible ? <Seat number={seat.number} onPress={onPress} key={index} /> : <View style={styles.invisibleSeat} key={index}></View>
+
 						))}
 
 					</View>
@@ -30,9 +29,7 @@ const Berth = ({onPress}) => {
 					<View style={styles.upperSteering}></View>
 					<View style={styles.beds}>
 						{USEAT.map((seat, index) => (
-							<>
-								{seat.visible ? <Sleeper number={seat.number} key={index} /> : <View style={styles.invisibleBed}></View>}
-							</>
+							seat.visible ? <Sleeper number={seat.number} onPress={onPress} key={index} /> : <View style={styles.invisibleBed} key={index}></View>
 						))}
 
 					</View>

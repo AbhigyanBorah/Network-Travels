@@ -11,11 +11,11 @@ const RestStop = () => {
                 </View>
                 <View style={styles.facilitiesContainer}>
                     <View style={styles.facility}>
-                        <Image source={require('../assets/safety.png')} style={styles.facilityLogo} />
+                        <Image source={require('../assets/safety-1.png')} style={styles.facilityLogo} />
                         <Text style={styles.facilityText}>Safety</Text>
                     </View>
                     <View style={styles.facility}>
-                        <Image source={require('../assets/hygiene.png')} style={styles.facilityLogo} />
+                        <Image source={require('../assets/hygiene-1.png')} style={styles.facilityLogo} />
                         <Text style={styles.facilityText}>Hygiene</Text>
                     </View>
                 </View>

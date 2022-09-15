@@ -27,7 +27,7 @@ const Login = ({navigation: {goBack}, navigation}) => {
             <Image source={require('../assets/NE.png')} style={styles.backImg} />
             <View style={styles.headingContainer}>
                 <Text style={styles.heading}>Welcome to</Text>
-                <Image source={require('../assets/NetworkTravelsText.png')} style={{marginTop: 10, width: 320, height: 30}} />
+                <Image source={require('../assets/NetworkTravelsText2.png')} style={{marginTop: 10, width: 320, height: 30}} />
             </View>
             <View style={styles.inputContainer}>
                 <TextInput style={styles.input} placeholder='Mobile Number' keyboardType='number-pad' onChangeText={
@@ -39,7 +39,7 @@ const Login = ({navigation: {goBack}, navigation}) => {
             </View>
 
             {/* </ImageBackground> */}
-            <Image source={require('../assets/bus.png')} />
+            <Image source={require('../assets/busNew.png')} style={{width: '80%', height: 100, resizeMode: 'contain'}} />
         </Pressable>
     );
 };

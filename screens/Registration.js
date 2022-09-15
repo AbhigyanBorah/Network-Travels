@@ -31,7 +31,7 @@ const Registration = ({navigation}) => {
 
     return (
         <Pressable style={styles.mainContainer} onPress={() => Keyboard.dismiss()}>
-            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('Home')}>
+            <Pressable style={styles.skipContainer} onPress={() => navigation.navigate('BottomNav')}>
                 <Text style={{fontSize: 15, fontWeight: 'bold'}}>Skip</Text>
                 <Ionicons name='chevron-forward-outline' size={20} />
             </Pressable>
@@ -60,12 +60,12 @@ const Registration = ({navigation}) => {
                 <View style={styles.line}></View>
             </View>
             <Pressable android_ripple={{color: '#e1e1e1'}} style={styles.googleButton}>
-                <Image source={require('../assets/googleIcon.png')} />
-                <Image source={require('../assets/GoogleText.png')} style={{marginLeft: 15}} />
+                <Image source={require('../assets/googleIcon-1.png')} style={{resizeMode: 'contain', height: 30, width: 30}} />
+                <Image source={require('../assets/GoogleText-1.png')} style={{marginLeft: 15, resizeMode: 'contain', height: 30, width: 80}} />
             </Pressable>
 
             {/* </ImageBackground> */}
-            <Image source={require('../assets/bus.png')} />
+            <Image source={require('../assets/busNew.png')} style={{width: '80%', height: 100, resizeMode: 'contain'}} />
         </Pressable>
     );
 };
@@ -119,7 +119,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: -40
     },
     signUpContainer: {
         width: '100%',
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         elevation: 5,
         marginBottom: 100,
-        marginTop: -20
+        marginTop: 20
     },
     skipContainer: {
         position: 'absolute',

@@ -61,7 +61,7 @@ const OTPScreen = ({navigation: {goBack}, navigation}) => {
             </View>
 
             {/* </ImageBackground> */}
-            <Image source={require('../assets/bus.png')} />
+            <Image source={require('../assets/busNew.png')} style={{width: '80%', height: 100, resizeMode: 'contain'}} />
         </Pressable>
     );
 };

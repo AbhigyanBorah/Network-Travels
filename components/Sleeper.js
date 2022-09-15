@@ -1,15 +1,16 @@
 import {Image, ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 
-const Sleeper = ({number}) => {
+const Sleeper = ({number, onPress}) => {
 
     const [pressed, setPressed] = useState(false);
 
-    function onPress() {
+    function onPress2() {
         setPressed(!pressed);
+        onPress();
     }
     return (
-        <Pressable onPress={onPress}>
+        <Pressable onPress={onPress2}>
             <View style={styles.seats}>
                 <ImageBackground source={require('../assets/bed.png')} style={pressed ? [styles.seatImg, {backgroundColor: '#00AA63'}] : [styles.seatImg, {backgroundColor: '#ffffff'}]}>
                     <Text style={styles.seatNo}>{number}</Text>

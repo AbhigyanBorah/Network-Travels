@@ -23,6 +23,9 @@ import OrderConfirmation from './screens/OrderConfirmation';
 import RateReview from './screens/RateReview';
 import CancelTicket1 from './screens/CancelTicket1';
 import WalletScreen from './screens/WalletScreen';
+import GetTicket from './screens/GetTicket';
+import CancelTicket2 from './screens/CancelTicket2';
+import CancelTicket3 from './screens/CancelTicket3';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +51,9 @@ export default function App() {
           <Stack.Screen name="Rate & review" component={RateReview} options={{headerShown: false, animation: 'slide_from_right'}} />
           <Stack.Screen name="CancelTicket1" component={CancelTicket1} options={{headerShown: false, animation: 'slide_from_right'}} />
           <Stack.Screen name="My wallet" component={WalletScreen} options={{headerShown: false, animation: 'slide_from_right'}} />
+          <Stack.Screen name="Get ticket" component={GetTicket} options={{headerShown: false, animation: 'slide_from_right'}} />
+          <Stack.Screen name="Cancel ticket2" component={CancelTicket2} options={{headerShown: false, animation: 'none'}} />
+          <Stack.Screen name="Cancel ticket3" component={CancelTicket3} options={{headerShown: false, animation: 'none'}} />
           <Stack.Screen name="SideNav" component={SideNav} options={{headerShown: false, animation: 'slide_from_left'}} />
           <Stack.Screen name="BottomNav" component={BottomNav} options={{headerShown: false, animation: 'slide_from_right'}} />
           <Stack.Screen name="Filter" component={FilterScreen} options={{headerShown: false, animation: 'slide_from_bottom'}} />
